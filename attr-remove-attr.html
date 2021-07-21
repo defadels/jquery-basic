@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attr & Remove Attr</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+
+    <style>
+        #boxHIjau {
+            background: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <button class="tambah_attribute">Tambah Atribute ID</button>
+    <button class="hapus_attribute">Hapus Atribute ID</button>
+    <button class="dapatkan_nilai">Dapatkan Nilai Atribute ID</button>
+    <hr>
+
+    <div class="box">Ini adalah element yang atributnya di manipulasi</div>
+
+    <script>
+        $(document).ready(function() {
+            $(".tambah_attribute").click(function() {
+                $(".box").attr("id", "boxHIjau");
+            });
+            
+            $(".hapus_attribute").click(function() {
+                $(".box").removeAttr("id");
+            });
+            
+            $(".dapatkan_nilai").click(function() {
+               var nilaiId = $(".box").attr("id");
+               alert(nilaiId);
+            });
+        });
+    </script>
+</body>
+</html>

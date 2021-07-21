@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append Prepend DOM</title>
+    <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <button class="tambah-diawal">Tambah di awal</button>
+    <button class="tambah-diakhir">Tambah di akhir</button>
+    <hr>
+    <div class="box"><span style="color: red;">Isi di tengah</span></div>
+    <script>
+        $(document).ready(function(){
+
+            $(".tambah-diawal").click(function() {
+                $(".box").prepend(" tambahkan di awal | ");
+            });
+            
+            $(".tambah-diakhir").click(function() {
+                $(".box").append(" tambahkan di akhir | ");
+            });
+        });
+    </script>
+</body>
+</html>

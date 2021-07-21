@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FadeIn FadeOut jQuery</title>
+    <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+
+    <style>
+        ul{
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul li {
+            background: green;
+            width: 50px;
+            height: 18px;
+            float: left;
+            margin-right: 2px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+        <script>
+
+            // Pemanggilan awal script jquery
+            $(document).ready(function() {
+
+                // isi script aksi jquery
+                tampilkan();
+
+            });
+
+            function tampilkan() {
+                $("li").first().fadeIn(500, function callback_tampil(){
+                    if ($(this).is(":last-child")) {
+                       hilangkan();
+                    } else {
+                        $(this).next().fadeIn(500, callback_tampil);
+                    }
+  
+                });
+            }
+            
+            function hilangkan() {
+                $("li").last().fadeOut(500, function callback_hilang(){
+                    if ($(this).is(":first-child")) {
+                        // Akan menampilkan
+                        tampilkan();
+                    } else {
+                        $(this).prev().fadeOut(500, callback_hilang);
+                    }
+  
+                });
+            }
+
+        </script>
+</body>
+</html>
